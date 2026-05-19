@@ -3,25 +3,73 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f0a1f;
+  --foreground: #f0f0ff;
+  --primary-purple: #9333ea;
+  --deep-purple: #2d1b69;
+  --neon-purple: #d946ef;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #f8f3ff;
+    --foreground: #1a0f3d;
   }
+}
+
+* {
+  @apply box-border;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "GeistSans", system-ui, -apple-system, sans-serif;
+}
+
+/* Glassmorphic effect */
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl;
+}
+
+.glass-dark {
+  @apply bg-black/30 backdrop-blur-md border border-white/10 rounded-2xl;
+}
+
+/* Gradient mesh backgrounds */
+.gradient-mesh {
+  background: linear-gradient(135deg, #9333ea 0%, #2d1b69 25%, #1a0f3d 50%, #7e22ce 75%, #9333ea 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Smooth transitions */
+button, a, input {
+  @apply transition-all duration-300;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .blur-glass {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20;
   }
 }
