@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { useForm, SubmitHandler, UseFormRegisterReturn } from "react-hook-form";
+import { useForm, SubmitHandler, UseFormRegister } from "react-hook-form";
 import {
   Mail,
   Lock,
@@ -90,7 +90,7 @@ interface FormFieldProps {
   placeholder?: string;
   icon?: React.ReactNode;
   error?: string;
-  register: UseFormRegisterReturn;
+  register: UseFormRegister<LoginFormData>;
   showPasswordToggle?: boolean;
   showPassword?: boolean;
   onTogglePassword?: () => void;
