@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, UseFormRegisterReturn } from "react-hook-form";
 import {
   Mail,
   Lock,
@@ -90,7 +90,7 @@ interface FormFieldProps {
   placeholder?: string;
   icon?: React.ReactNode;
   error?: string;
-  register: any;
+  register: UseFormRegisterReturn;
   showPasswordToggle?: boolean;
   showPassword?: boolean;
   onTogglePassword?: () => void;
@@ -193,7 +193,7 @@ export default function LoginPage() {
         // In a real app, redirect to dashboard
         setSubmitStatus("idle");
       }, 2000);
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
       setTimeout(() => setSubmitStatus("idle"), 2000);
     }
@@ -439,7 +439,7 @@ export default function LoginPage() {
                 variants={itemVariants}
                 className="text-center mt-8 text-white/70"
               >
-                Don't have an account?{" "}
+                Don&apos;t have an account?{" "}
                 <motion.a
                   href="#"
                   whileHover={{ color: "#d946ef" }}
